@@ -30,3 +30,9 @@ def login_view(request):
             messages.error(request, "Invalid credential!")
     return render(request, 'login.html')
 
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+def home_view(request):
+    return render(request, 'home.html')
