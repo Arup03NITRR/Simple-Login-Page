@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+    <h1> Login </h1>
+    {% if messages %}
+        {% for msg in messages %}
+            <p style="color: red;"> {{msg}} </p>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter Username"/><br/>
+        <input type="password" name="password" placeholder="Enter Password"/><br/>
+        <input type="submit" value="Login"/>
+    </form>
+    <p> Don't have an account? <a href="http://"> Signup </a> </p>
+{% endblock %}
