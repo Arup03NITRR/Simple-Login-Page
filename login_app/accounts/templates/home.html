@@ -5,6 +5,6 @@ Home
 {% endblock %}
 
 {% block content %}
-    <h1> Welcome, {{}} </h1>
-    <a href="#"> Logout </a>
+    <h1> Welcome, {{user.username}} </h1>
+    <a href="{% url 'login' %}"> Logout </a>
 {% endblock %}
