@@ -17,3 +17,16 @@ def signup_view(request):
         messages.success(request, "Successfully signed up, Please login...")
         return redirect('login')
     return render(request, 'signup.html')
+
+def login_view(request):
+    if request.method=="POST":
+        username=request.POST['username']
+        password=request.POST['password']
+        user=authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, "Invalid credential!")
+    return render(request, 'login.html')
+
